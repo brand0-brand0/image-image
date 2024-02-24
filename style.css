@@ -1,16 +1,19 @@
 #carouselContainer {
     width: 100%;
     overflow: hidden;
-    white-space: nowrap; /* Keep images in line */
 }
 
 .carouselSlide {
     display: flex;
-    align-items: center; /* Center images vertically if container height is defined */
+    animation: slide 10s linear infinite;
 }
 
 .carouselSlide img {
-    height: 50px; /* Reduced height to make images smaller */
-    margin-right: 20px; /* Increase spacing if needed */
-    transition: transform 0.5s ease; /* Optional: Smooth transition for any scaling effects */
+    height: 40px; /* Adjust the height to scale down the images */
+    margin-right: 5px; /* Adjust spacing between images */
+}
+
+@keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
