@@ -1,7 +1,7 @@
 #carouselContainer {
     width: 100%;
     overflow: hidden;
-    white-space: nowrap; /* Ensure images line up horizontally */
+    white-space: nowrap; /* Keep images in line */
 }
 
 .carouselSlide {
@@ -10,7 +10,7 @@
 }
 
 .carouselSlide img {
-    width: auto; /* Adjust based on your preference */
-    height: 100px; /* Adjust based on your preference */
-    margin-right: 10px; /* Space between images */
+    width: auto; /* Auto width to maintain aspect ratio */
+    height: 60px; /* Smaller height, adjust as needed */
+    margin-right: 10px; /* Adjust spacing between images */
 }
