@@ -6,11 +6,11 @@
 
 .carouselSlide {
     display: flex;
-    transition: transform 0.5s ease;
+    align-items: center; /* Center images vertically if container height is defined */
 }
 
 .carouselSlide img {
-    width: auto; /* Auto width to maintain aspect ratio */
-    height: 60px; /* Smaller height, adjust as needed */
-    margin-right: 10px; /* Adjust spacing between images */
+    height: 50px; /* Reduced height to make images smaller */
+    margin-right: 20px; /* Increase spacing if needed */
+    transition: transform 0.5s ease; /* Optional: Smooth transition for any scaling effects */
 }
