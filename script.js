@@ -1,19 +1,23 @@
-<script>
-const slide = document.querySelector('.carouselSlide');
-let speed = 1; // Speed of the movement
-let shiftPerFrame = speed * 0.5; // Shift per requestAnimationFrame call, adjust for speed
-let totalWidth = slide.offsetWidth / 2; // Since images are duplicated, we use half the width for the reset point
+document.addEventListener("DOMContentLoaded", function() {
+    const slide = document.querySelector('.carouselSlide');
+    const images = document.querySelectorAll('.carouselSlide img');
+    let speed = 2; // Pixels moved per frame, adjust for speed
+    let index = 0; // Current transform position
 
-function moveCarousel() {
-    slide.style.transform = `translateX(-${shiftPerFrame}px)`;
-    shiftPerFrame += speed;
-    
-    if (shiftPerFrame >= totalWidth) {
-        shiftPerFrame = 0; // Reset shift to start when halfway through (end of original set)
+    // Clone images for a seamless loop
+    images.forEach(image => {
+        let clone = image.cloneNode(true);
+        slide.appendChild(clone);
+    });
+
+    function moveCarousel() {
+        index += speed;
+        if (index >= slide.offsetWidth / 2) {
+            index = 0; // Reset to start once it reaches the end of the original images
+        }
+        slide.style.transform = `translateX(-${index}px)`;
+        requestAnimationFrame(moveCarousel); // Smooth animation
     }
-    
-    requestAnimationFrame(moveCarousel); // Create smooth animation
-}
 
-moveCarousel(); // Start the animation
-</script>
+    moveCarousel(); // Start the animation
+});
