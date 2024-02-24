@@ -1,19 +1,34 @@
-#carouselContainer {
-    width: 100%;
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  .carousel {
     overflow: hidden;
-}
-
-.carouselSlide {
+    width: 100%;
+    position: relative;
+  }
+  
+  .carousel-inner {
     display: flex;
-    animation: slide 10s linear infinite;
-}
-
-.carouselSlide img {
-    height: 40px; /* Adjust the height to scale down the images */
-    margin-right: 5px; /* Adjust spacing between images */
-}
-
-@keyframes slide {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
+    width: calc(100% * 3); /* Adjust based on number of images */
+    animation: scroll 10s linear infinite;
+  }
+  
+  .carousel-inner img {
+    width: auto;
+    flex: 0 0 auto;
+    transition: transform 0.5s ease;
+    height: 90vh;
+    justify-content: center;
+  }
+  
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
